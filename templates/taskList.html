@@ -1,0 +1,46 @@
+<HTML>
+<head>TASKLIST</head>
+<body>
+<form method="post" action="/add">
+    <input type="text" name="Task Name" placeholder="Enter the new Task">
+      <input type="text" name="isDone" placeholder="Enter if task is Done?">
+      <input type="submit" value="Add Task">
+
+</form>
+
+<TABLE BORDER="5">
+    <TR><TH>TASK</TH><TH>IS DONE</TH></TR>
+
+
+
+    {% for task in TaskList: %}
+
+
+    <TR>
+<form method="post" action="/update">
+    <TD>
+               <input type="hidden" name="id" value="{{task[0]}}"    >
+                <input type="text" name="updatedTask" value="{{ task[1]}}">
+
+          </TD>
+        <TD>
+             <input type="text" name="updatedDate" value="{{ task[2]}}">
+ <input type="submit" name="SaveOrDelete" value="save">
+             <input type="submit" name="SaveOrDelete" value="delete">
+          </TD>
+
+</form>
+
+
+    </TR>
+{% endfor %}
+
+
+</TABLE>
+
+</body>
+
+
+
+
+</HTML>
